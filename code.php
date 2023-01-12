@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require 'dbcon.php'
 
 if(isset($_POST['save_student'])) {
@@ -10,6 +10,18 @@ if(isset($_POST['save_student'])) {
 
     $query = "INSERT INTO students (name,email,contact,phone,course) VALUES ('$name','$email','$contact','$course')";
 
-    $query_run = mysqli_query();
+    $query_run = mysqli_query($con, $query);
+    if($query_run) {
+
+        $_SESSION['message'] = "Student added successfully!";
+        header('Location: student-create.php');
+        exit(0);
+    }
+else {
+        $_SESSION['message'] = "Student not added!";
+        header('Location: student-create.php');
+        exit(0);
+}
+
 }
 ?>

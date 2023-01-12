@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,6 +19,7 @@
 <body>
 
     <div class="container mt-5">
+        <?php include('message.php') ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -41,7 +46,7 @@
                                     <input type="text" name="course" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" name="save_student" class="btn btn-primary" >Save student</button>
+                                    <button type="submit" name="save_student" class="btn btn-primary">Save student</button>
                                 </div>
                             </form>
                         </div>
